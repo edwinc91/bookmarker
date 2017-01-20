@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :user
 
-  TYPES = [
+  BOOK_TYPES = [
     'Paperback', 'E-book', 'Webnovel'
   ]
 
@@ -10,4 +10,4 @@ class Book < ActiveRecord::Base
   validates :book_type, inclusion: { in: TYPES }
 end
 
-# Book::TYPES
+# Book::BOOK_TYPES

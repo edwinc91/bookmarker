@@ -4,26 +4,28 @@ class SessionController < ApplicationController
     user = User.find_by(name: user_params[:name])
 
     if user && user.authenticate(user_params[:password])
-      session[:current_user_id] = user.id
-      flash[:message] = "Login Successful!"
+      # session[:current_user_id] = user.id
 
-      # redirect_to
+      token = SecureRandom.urlsafe_base64
+
+      session[:session_token] = token
+      user.update(session_token: token)
+
+      flash[:message] = "Login Successful!"
+      redirect_to application_angular_path
     else
-      flash[:message] = "Username/Password Combination does not exist!"
+      flash[:message] = "Username/Password combination does not exist!"
+      redirect_to root_path
     end
 
-    redirect_to root_path
-
-  end
-
   def destroy
-    session[:current_user_id] = nil
+    log_out!
 
     redirect_to root_path
   end
 
   def current_user
-    render json: current_user
+
   end
 
   private

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app="BookmarkerApp">
+<head>
+  <title>Bookmarker</title>
+  <%= stylesheet_link_tag    'angular', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <%= yield %>
+  <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
+</body>
+</html>

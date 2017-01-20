@@ -1,0 +1,38 @@
+<header ng-controller="HeaderController as header">
+  <h1>Hello {{header.current_user.name}}, what have you read today?</h1>
+
+</header>
+<main ng-controller="BooksController as booksCtrl">
+  <h2>What I've been reading</h2>
+  <ul>
+    <li ng-repeat="book in booksCtrl.current_user_books">
+      Title: {{book.name}}
+      <br/>
+      Type: {{book.book_type}}
+      <br/>
+      Website: {{book.website}}
+      <br/>
+      Volume: {{book.volume}}
+      <br/>
+      Chapter: {{book.chapter}}
+      <br/>
+      Page: {{book.page}}
+      <br/>
+      Summary/Notes: {{transgression.description}}
+    </li>
+  </ul>
+
+  <h2>I've read something new!</h2>
+  <form ng-submit="booksCtrl.createTransgression()">
+    <input type="text" ng-model="booksCtrl.newBookName" placeholder="Title"/>
+    <select ng-model="booksCtrl.newBookBookType">
+      <option ng-repeat="bookType in booksCtrl.BOOK_TYPES">{{bookType}}</option>
+    </select>
+    <input type="text" ng-model="booksCtrl.newBookWebsite" placeholder="Website(If applicable)"/>
+    <input type="text" ng-model="booksCtrl.newBookVolume" placeholder="Volume(If applicable)"/>
+    <input type="text" ng-model="booksCtrl.newBookChapter" placeholder="Chapter(If applicable)"/>
+    <input type="text" ng-model="booksCtrl.newBookPage" placeholder="Page"/>
+    <input type="text" ng-model="booksCtrl.newBookDescription" placeholder="What's happened so far"/>
+    <input type="submit" value="Read so far, much more to go!" />
+  </form>
+</main>

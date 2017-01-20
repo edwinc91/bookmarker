@@ -24,6 +24,17 @@ class BooksController < ApplicationController
   end
 
   def update
+    @book = Book.find(params[:id])
+
+    if @book.update(book_params)
+      render json: @book
+    else
+      render json: {
+        error: {
+          message: @book.errors.full_messages.to_sentence
+        }
+      }
+    end
   end
 
   def show
@@ -33,7 +44,14 @@ class BooksController < ApplicationController
     @books = current_user.books
   end
 
-  def delete
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { head :no_content }
+    end
   end
 
   private
