@@ -1,0 +1,18 @@
+<form action="<%= books_path %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" name="book[name]" placeholder="Title" value="<%= @book.name %>"><br/>
+  <select name="book[book_type]">
+    <% Book::TYPES.each do |type| %>
+      <option value="<%= type %>"
+        <%= @book.book_type == type ? "selected" : "" %>>
+        <%= type %>
+      </option>
+    <% end %>
+  </select><br/>
+  <input type="text" name="book[website]" placeholder="Website" value="<%= @book.website %>"><br/>
+  <input type="text" name="book[volume]" placeholder="Volume" value="<%= @book.volume %>"><br/>
+  <input type="text" name="book[chapter]" placeholder="Chapter" value="<%= @book.chapter %>"><br/>
+  <input type="text" name="book[page]" placeholder="Page" value="<%= @book.page %>"><br/>
+  <input type="text" name="book[description]" placeholder="What happened so far?" value="<%= @book.description %>"><br/>
+  <input type="submit" value="Save Me">
+</form>
