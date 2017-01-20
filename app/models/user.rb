@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
     minimum: 6, allow_nil: true
   }
 
-  has_many :books
+  has_many :books, dependent: :destroy
 end

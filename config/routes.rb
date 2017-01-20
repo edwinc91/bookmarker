@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  resources :books
+
   root 'application#welcome'
 
-  get 'amiloggedin' => 'application#amiloggedin'
+  resources :books, defaults: { format: :json }
 
   post '/users' => 'users#create'
 
+  get '/session' => 'session#current_user', defaults: { format: :json }
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 

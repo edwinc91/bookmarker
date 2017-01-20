@@ -22,6 +22,10 @@ class SessionController < ApplicationController
     redirect_to root_path
   end
 
+  def current_user
+    render json: current_user
+  end
+
   private
 
   def user_params

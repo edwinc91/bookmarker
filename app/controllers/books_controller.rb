@@ -12,8 +12,11 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to books_path
     else
-      flash[:message] = @book.errors.full_messages.to_sentence
-      render :new
+      render json: {
+        error: {
+          message: @book.errors.full_messages.to_sentence
+        }
+      }
     end
   end
 
