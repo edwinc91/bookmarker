@@ -17,6 +17,7 @@ class SessionController < ApplicationController
       flash[:message] = "Username/Password combination does not exist!"
       redirect_to root_path
     end
+  end
 
   def destroy
     log_out!
@@ -24,8 +25,7 @@ class SessionController < ApplicationController
     redirect_to root_path
   end
 
-  def current_user
-
+  def current_reader
   end
 
   private
@@ -33,5 +33,4 @@ class SessionController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
-
 end

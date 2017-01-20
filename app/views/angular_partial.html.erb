@@ -18,12 +18,12 @@
       <br/>
       Page: {{book.page}}
       <br/>
-      Summary/Notes: {{transgression.description}}
+      Summary/Notes: {{book.description}}
     </li>
   </ul>
 
   <h2>I've read something new!</h2>
-  <form ng-submit="booksCtrl.createTransgression()">
+  <form ng-submit="booksCtrl.createBook()">
     <input type="text" ng-model="booksCtrl.newBookName" placeholder="Title"/>
     <select ng-model="booksCtrl.newBookBookType">
       <option ng-repeat="bookType in booksCtrl.BOOK_TYPES">{{bookType}}</option>

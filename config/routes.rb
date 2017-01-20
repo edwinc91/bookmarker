@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   post '/users' => 'users#create'
 
-  get '/session' => 'session#current_user', defaults: { format: :json }
+  get '/session' => 'session#current_reader', defaults: { format: :json }
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 
