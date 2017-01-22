@@ -15,7 +15,7 @@ app.controller('BooksController', ['$http', function ($http) {
   var controller = this;
   console.log(this)
   console.log(controller)
-  this.BOOK_TYPES = [ 'Paperback', 'E-Book', 'Webnovel' ];
+  this.BOOK_TYPES = [ 'Paperback', 'Electronic Book', 'Webnovel' ];
   this.newBookBookType = 'Paperback';
   this.getBooks = function () {
     // get books for current User

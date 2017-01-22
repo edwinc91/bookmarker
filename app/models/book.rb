@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 
   BOOK_TYPES = [
-    'Paperback', 'E-book', 'Webnovel'
+    'Paperback', 'Electronic Book', 'Webnovel'
   ]
 
   validates :reader, presence: true
