@@ -1,7 +1,8 @@
-json.user current_user.name
+json.reader current_user.name
 
 json.books(@books) do |book|
   json.id book.id
+  json.name book.name
   json.book_type book.book_type
   json.website book.website
   json.volume book.volume

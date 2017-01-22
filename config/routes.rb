@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
   root 'application#welcome'
 
+  get 'application/angular'
+
   resources :books, defaults: { format: :json }
 
+  # resources :users, only: [:create]
   post '/users' => 'users#create'
 
   get '/session' => 'session#current_reader', defaults: { format: :json }

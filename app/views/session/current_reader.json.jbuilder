@@ -5,3 +5,4 @@ if current_user
   end
 else
   json.current_user nil
+end
