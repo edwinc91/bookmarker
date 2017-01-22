@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   before_action :require_current_user
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def index
@@ -23,9 +24,6 @@ class BooksController < ApplicationController
         }
       }
     end
-  end
-
-  def edit
   end
 
   def update

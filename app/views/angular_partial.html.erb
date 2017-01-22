@@ -19,20 +19,41 @@
       Page: {{book.page}}
       <br/>
       Summary/Notes: {{book.description}}
+      <div>
+        <button ng-click="booksCtrl.showEditForm(book.id)"> Edit </button>
+      </div>
+      <br/>
+      <form ng-submit="booksCtrl.editBook(book)" ng-show="booksCtrl.editFormStatus === book.id" >
+         <div>
+           <input ng-model="book.name" type="text" required><br>
+           <select ng-model="book.book_type">
+             <option ng-repeat="bookType in booksCtrl.BOOK_TYPES">{{bookType}}</option>
+           </select><br/>
+           <input type="text" ng-model="book.website"><br/>
+           <input type="text" ng-model="book.volume"><br/>
+           <input type="text" ng-model="book.chapter"><br/>
+           <input type="text" ng-model="book.page"><br/>
+           <textarea ng-model="book.description" rows="3"></textarea>
+           <div class="button"><br>
+             <input type="submit" value="Submit">
+           </div>
+         </div>
+       </form>
+      <hr/>
     </li>
   </ul>
 
   <h2>I've read something new!</h2>
   <form ng-submit="booksCtrl.createBook()">
-    <input type="text" ng-model="booksCtrl.newBookName" placeholder="Title"/>
+    <input type="text" ng-model="booksCtrl.newBookName" placeholder="Title"/><br/>
     <select ng-model="booksCtrl.newBookBookType">
       <option ng-repeat="bookType in booksCtrl.BOOK_TYPES">{{bookType}}</option>
-    </select>
-    <input type="text" ng-model="booksCtrl.newBookWebsite" placeholder="Website(If applicable)"/>
-    <input type="text" ng-model="booksCtrl.newBookVolume" placeholder="Volume(If applicable)"/>
-    <input type="text" ng-model="booksCtrl.newBookChapter" placeholder="Chapter(If applicable)"/>
-    <input type="text" ng-model="booksCtrl.newBookPage" placeholder="Page"/>
-    <input type="text" ng-model="booksCtrl.newBookDescription" placeholder="What's happened so far"/>
+    </select><br/>
+    <input type="text" ng-model="booksCtrl.newBookWebsite" placeholder="Website(If applicable)"/><br/>
+    <input type="text" ng-model="booksCtrl.newBookVolume" placeholder="Volume(If applicable)"/><br/>
+    <input type="text" ng-model="booksCtrl.newBookChapter" placeholder="Chapter(If applicable)"/><br/>
+    <input type="text" ng-model="booksCtrl.newBookPage" placeholder="Page"/><br/>
+    <input type="text" ng-model="booksCtrl.newBookDescription" placeholder="What's happened so far"/><br/>
     <input type="submit" value="Read so far, much more to go!" />
   </form>
 </main>
