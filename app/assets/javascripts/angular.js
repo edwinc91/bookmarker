@@ -3,6 +3,8 @@ var app = angular.module('BookmarkerApp', []);
 app.controller('HeaderController', ['$http', function($http){
   var controller = this;
   $http.get('/session').success(function(data){
+    //setting current user to data.current user because
+    //data comes back like {current_user:{name:'test'}}
     controller.current_user = data.current_user;
   })
 }]);
@@ -13,14 +15,15 @@ app.controller('BooksController', ['$http', function($http){
   this.BOOK_TYPES = [ 'Paperback', 'E-Book', 'Webnovel' ];
   this.newBookBookType = 'Paperback';
   this.getBooks = function(){
+    // get books for current User
     $http.get('/books').success(function(data){
       controller.current_user_books = data.books;
     });
   }
   this.getBooks();
 
+  // create a book
   this.createBook = function(){
-    console.log(controller)
     controller.current_user_books.push({
       name: this.newBookName,
       book_type: this.newBookBookType,
@@ -31,6 +34,7 @@ app.controller('BooksController', ['$http', function($http){
       description: this.newBookDescription
     });
 
+    //make a post to /books
     $http.post('/books', {
       authenticity_token: authenticity_token,
       book: {

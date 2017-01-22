@@ -4,7 +4,7 @@ class Book < ActiveRecord::Base
     'Paperback', 'E-book', 'Webnovel'
   ]
 
-  validates :user, presence: true
+  validates :reader, presence: true
   validates :name, presence: true
   validates :book_type, inclusion: { in: BOOK_TYPES }
 
