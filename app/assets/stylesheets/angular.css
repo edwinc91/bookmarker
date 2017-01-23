@@ -1,0 +1,46 @@
+* {
+  padding-left: 1em;
+  padding-right: 1em;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+body {
+  border: solid black;
+  padding-bottom: 1em;
+}
+
+ul {
+  padding-left: 1.7em;
+  list-style-type: none;
+}
+
+div.button {
+  position: relative;
+  left: -1em;
+}
+
+div.edit {
+  position: relative;
+  left: -1.8em;
+}
+
+h2 {
+  padding-left: 1.5em;
+}
+
+form.create {
+  padding-left: 2.4em;
+}
+
+form.edit {
+  padding-left: 1em;
+}
+
+input {
+  padding: 0px;
+  font-size: 1.1em;
+}
+textarea {
+  padding:0px;
+  font-size: 1.1em;
+}

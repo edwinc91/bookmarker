@@ -1,12 +1,14 @@
 <header ng-controller="HeaderController as header">
-  <h1>Hello {{header.current_user.name}}, what have you read today?</h1>
+  <h1> Hello {{header.current_user.name}}, what have you read today? </h1>
 
 </header>
 <main ng-controller="BooksController as booksCtrl">
-  <h2>What I've been reading</h2>
+  <h2> What I've been reading </h2>
   <ul>
     <li ng-repeat="book in booksCtrl.current_user_books">
       Title: {{book.name}}
+      <br/>
+      Author: {{book.author}}
       <br/>
       Type: {{book.book_type}}
       <br/>
@@ -19,24 +21,27 @@
       Page: {{book.page}}
       <br/>
       Summary/Notes: {{book.description}}
-      <div>
+      <br/>
+      Last Updated: {{book.updated_at}}
+      <div class="button">
         <button ng-click="booksCtrl.showEditForm(book.id)"> Edit </button>
         <button ng-click="booksCtrl.deleteBook(book)"> Delete </button>
       </div>
       <br/>
-      <form ng-submit="booksCtrl.editBook(book)" ng-show="booksCtrl.editFormStatus === book.id" >
-         <div>
-           <input ng-model="book.name" type="text" required><br>
+      <form class="edit" ng-submit="booksCtrl.editBook(book)" ng-show="booksCtrl.editFormStatus === book.id" >
+         <div class="edit">
+           <input ng-model="book.name" type="text" required/><br>
+           <input ng-model="book.author" type="text" placeholder="Author"/><br/>
            <select ng-model="book.book_type">
              <option ng-repeat="bookType in booksCtrl.BOOK_TYPES">{{bookType}}</option>
            </select><br/>
-           <input type="text" ng-model="book.website"><br/>
-           <input type="text" ng-model="book.volume"><br/>
-           <input type="text" ng-model="book.chapter"><br/>
-           <input type="text" ng-model="book.page"><br/>
-           <textarea ng-model="book.description" rows="3"></textarea>
-           <div class="button"><br>
-             <input type="submit" value="Submit">
+           <input type="text" ng-model="book.website" placeholder="Website"/><br/>
+           <input type="text" ng-model="book.volume" placeholder="Volume"/><br/>
+           <input type="text" ng-model="book.chapter" placeholder="Chapter"/><br/>
+           <input type="text" ng-model="book.page" placeholder="Page"/><br/>
+           <textarea ng-model="book.description" rows="3" placeholder="What's happened so far?"></textarea><br/>
+           <div class="button">
+             <input type="submit" value="Submit"/>
            </div>
          </div>
        </form>
@@ -45,8 +50,9 @@
   </ul>
 
   <h2>I've read something new!</h2>
-  <form ng-submit="booksCtrl.createBook()">
+  <form class="create" ng-submit="booksCtrl.createBook()">
     <input type="text" ng-model="booksCtrl.newBookName" placeholder="Title"/><br/>
+    <input type="text" ng-model="booksCtrl.newBookAuthor" placeholder="Author"/><br/>
     <select ng-model="booksCtrl.newBookBookType">
       <option ng-repeat="bookType in booksCtrl.BOOK_TYPES">{{bookType}}</option>
     </select><br/>
@@ -54,7 +60,7 @@
     <input type="text" ng-model="booksCtrl.newBookVolume" placeholder="Volume(If applicable)"/><br/>
     <input type="text" ng-model="booksCtrl.newBookChapter" placeholder="Chapter(If applicable)"/><br/>
     <input type="text" ng-model="booksCtrl.newBookPage" placeholder="Page"/><br/>
-    <input type="text" ng-model="booksCtrl.newBookDescription" placeholder="What's happened so far"/><br/>
-    <input type="submit" value="Read so far, much more to go!" />
+    <textarea ng-model="booksCtrl.newBookDescription" rows="3" placeholder="What's happened so far"/></textarea><br/>
+    <input type="submit" value="Read so far" />
   </form>
 </main>

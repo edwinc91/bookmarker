@@ -3,6 +3,7 @@ json.reader current_user.name
 json.book do
   json.id @book.id
   json.name @book.name
+  json.author @book.author
   json.book_type @book.book_type
   json.website @book.website
   json.volume @book.volume

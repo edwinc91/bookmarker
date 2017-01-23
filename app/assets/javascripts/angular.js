@@ -29,6 +29,7 @@ app.controller('BooksController', ['$http', function ($http) {
   this.createBook = function () {
     controller.current_user_books.push({
       name: this.newBookName,
+      author: this.newBookAuthor,
       book_type: this.newBookBookType,
       website: this.newBookWebsite,
       volume: this.newBookVolume,
@@ -42,6 +43,7 @@ app.controller('BooksController', ['$http', function ($http) {
       authenticity_token: authenticity_token,
       book: {
         name: this.newBookName,
+        author: this.newBookAuthor,
         book_type: this.newBookBookType,
         website: this.newBookWebsite,
         volume: this.newBookVolume,
@@ -65,6 +67,7 @@ app.controller('BooksController', ['$http', function ($http) {
   	for (var i=0; i < this.current_user_books.length; i ++) {
   		if (this.current_user_books[i].id === book.id) {
   			this.current_user_books[i].name = book.name;
+        this.current_user_books[i].author = book.author;
         this.current_user_books[i].book_type = book.book_type;
         this.current_user_books[i].website = book.website;
         this.current_user_books[i].volume = book.volume;
@@ -78,6 +81,7 @@ app.controller('BooksController', ['$http', function ($http) {
   		authenticity_token: authenticity_token,
       book: {
         name: book.name,
+        author: book.author,
         book_type: book.book_type,
         website: book.website,
         volume: book.volume,
