@@ -16,8 +16,6 @@
 
 <% if current_user %>
   <hr/>
-  <a href= "<%= new_book_path %>"> New Book </a>
-  <br/>
   <form action="<%= session_path %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
