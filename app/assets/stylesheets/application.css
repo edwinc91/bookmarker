@@ -21,3 +21,11 @@ div.alert {
   padding: 1rem;
   font-size: 1.4rem;
 }
+
+h1 {
+  padding-left: 0.5rem;
+}
+
+input.submit {
+  width: 15%;
+}
