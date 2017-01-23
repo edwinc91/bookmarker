@@ -21,6 +21,7 @@
       Summary/Notes: {{book.description}}
       <div>
         <button ng-click="booksCtrl.showEditForm(book.id)"> Edit </button>
+        <button ng-click="booksCtrl.deleteBook(book)"> Delete </button>
       </div>
       <br/>
       <form ng-submit="booksCtrl.editBook(book)" ng-show="booksCtrl.editFormStatus === book.id" >

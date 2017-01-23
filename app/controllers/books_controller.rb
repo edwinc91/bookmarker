@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   before_action :require_current_user
 
@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to application_angular_path }
       format.json { head :no_content }
     end
   end

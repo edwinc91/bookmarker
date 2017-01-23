@@ -59,7 +59,7 @@ app.controller('BooksController', ['$http', function ($http) {
   // edit a book
   this.showEditForm = function(bookId){
     this.editFormStatus = bookId;
-  };
+  }
 
   this.editBook = function (book) {
   	for (var i=0; i < this.current_user_books.length; i ++) {
@@ -85,9 +85,28 @@ app.controller('BooksController', ['$http', function ($http) {
         page: book.page,
         description: book.description
       }
-  	}).success(function(data){
+  	}).success(function (data) {
   		console.log('book successfully edited');
   		this.showEditForm(null);
   	});
+  }
+
+  // delete books
+  this.deleteBook = function (book) {
+    console.log(book.id);
+
+    for (var i=0; i < this.current_user_books.length; i++) {
+	    if (this.current_user_books[i].id === book.id) {
+        console.log(i);
+		    console.log(this.current_user_books);
+		    this.current_user_books.splice(i, 1);
+		  }
+	  }
+
+    $http.delete('/books/' + book.id, {
+      authenticity_token: authenticity_token
+    }).success(function (data) {
+		  console.log('book deleted');
+    });
   };
 }]);
