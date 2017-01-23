@@ -14,7 +14,9 @@
     <input type="hidden" name="_method" value="DELETE">
     <input class="logout" type="submit" value="Logout">
   </form>
+
   <%= yield %>
+    <input class="scrollUp" type="button" value="↑">
   <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
 </body>
 </html>

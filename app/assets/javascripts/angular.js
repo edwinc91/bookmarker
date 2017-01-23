@@ -1,3 +1,7 @@
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+
 var app = angular.module('BookmarkerApp', []);
 
 app.controller('HeaderController', ['$http', function ($http) {
@@ -114,3 +118,19 @@ app.controller('BooksController', ['$http', function ($http) {
     });
   };
 }]);
+
+
+$('.scrollUp').on("click", function (e) {
+  console.log("this is working")
+  $('html, body').animate({ scrollTop: 0 }, 750);
+    return false;
+});
+
+$(document).scroll(function() {
+  var y = $(this).scrollTop();
+  if (y > 400) {
+    $('.scrollUp').fadeIn();
+  } else {
+    $('.scrollUp').fadeOut();
+  }
+});
