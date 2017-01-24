@@ -1,4 +1,4 @@
-Bookmarker
+<h2> Bookmarker </h2>
 
 An app that lets users keep track of where they are when they are reading multiple books. The app was built using PostgreSQL,
 Ruby on Rails, jQuery, and Angular.
